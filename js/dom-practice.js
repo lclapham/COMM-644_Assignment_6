@@ -14,6 +14,10 @@ myElement.onclick = function (){
 }
 
 //STEP 3
+let myBtn = window.document.getElementById("myBtn");
+myBtn.addEventListener("click", function () {
+    window.alert("I have been clicked")
+});
 
 //STEP 4
 
