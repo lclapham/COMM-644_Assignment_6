@@ -1,11 +1,17 @@
 /*eslint-env browser*/
 
+
 //STEP 1
-function alertMe () {
+function alertMe() {
     window.alert("I have been clicked")
 }
 
 //STEP 2
+let myElement = window.document.getElementById("myButton");
+
+myElement.onclick = function (){
+    window.alert("I have been clicked");
+}
 
 //STEP 3
 
