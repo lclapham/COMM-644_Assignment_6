@@ -1,6 +1,9 @@
 /*eslint-env browser*/
 
 //STEP 1
+function alertMe () {
+    window.alert("I have been clicked")
+}
 
 //STEP 2
 
