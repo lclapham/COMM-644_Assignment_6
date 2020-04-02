@@ -4,7 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Assignment 05 - DOM Practice</title>
-  
+    <script>
+
+        document.addEventListener("DOMContentLoaded", step5);
+
+        function message() {
+            window.alert("I have been clicked")
+        }
+        
+        function step5() {
+            let step5 = window.document.getElementById("step5");
+            step5.addEventListener("click", message);
+        }
+       
+    </script>
 </head>
 
 <body>
@@ -23,6 +36,10 @@
     <!--Step 4-->
     <div style="margin: 20px 20px;">
         <button id="step4">Step 4</button>
+    </div>
+    <!--Step 4-->
+    <div style="margin: 20px 20px;">
+        <button id="step5">Step 5</button>
     </div>
     <script src="js/dom-practice.js"></script>
 </body>
