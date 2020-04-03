@@ -68,5 +68,9 @@ $("start9").addEventListener("click", function () {
 
 });
 
-
 //STEP 10
+//Use $ for Id as above
+$('select10').addEventListener("click", function(){
+    let choice = $('drpDown').value;
+    window.alert(choice);
+})
