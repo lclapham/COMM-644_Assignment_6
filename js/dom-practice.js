@@ -33,12 +33,18 @@ step4.addEventListener("click", message);
 
 //STEP 6
 
-document.getElementById("redirect").addEventListener("click", function(event){
-    event.preventDefault()
-    alert("You clicked on a link")
-  });
+document.getElementById("redirect").addEventListener("click", function (e) {
+    (e).preventDefault();
+    alert("You clicked on a link");
+});
 
 //STEP 7
+document.getElementById("step 7").addEventListener("click", function (){
+    this.disabled="true";
+    let userInput = document.getElementById("tBox");
+    alert(userInput.value);
+   
+});
 
 //STEP 8
 
