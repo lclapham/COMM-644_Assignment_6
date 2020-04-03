@@ -39,7 +39,7 @@ document.getElementById("redirect").addEventListener("click", function (e) {
 });
 
 //STEP 7
-document.getElementById("step 7").addEventListener("click", function (){
+document.getElementById("step7").addEventListener("click", function (){
     this.disabled="true";
     let userInput = document.getElementById("tBox");
     alert(userInput.value);
@@ -47,6 +47,11 @@ document.getElementById("step 7").addEventListener("click", function (){
 });
 
 //STEP 8
+
+document.getElementById('step8').addEventListener("click", function() {
+    window.open('newpage.html','New Page', "width=300px,height=300px;")
+  
+});
 
 //STEP 9
 
