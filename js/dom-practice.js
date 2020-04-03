@@ -29,8 +29,14 @@ step4.addEventListener("click", message);
 
 //STEP 5
 
+// In html header
 
 //STEP 6
+
+document.getElementById("redirect").addEventListener("click", function(event){
+    event.preventDefault()
+    alert("You clicked on a link")
+  });
 
 //STEP 7
 
