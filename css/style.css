@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+ 
+}
+
+section > h1 {
+    margin: 25px 20px;
+}
+form {
+    display: table;
+    margin-left: 20px;
+    width: 300px;
+}
+p {
+    display: table-row;
+    width: inherit;
+    
+}
+label {
+    display: table-cell;
+    
+}
+input {
+    display: table-cell;
+    margin: 10px 10px;
+}
+
+p:nth-of-type(4) {
+    display: table-cell;
+    text-align: right;
+   
+}
