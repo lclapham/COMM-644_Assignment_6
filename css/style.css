@@ -26,8 +26,24 @@ input {
     margin: 10px 10px;
 }
 
-p:nth-of-type(4) {
-    display: table-cell;
-    text-align: right;
-   
+section > button {
+   margin-left: 233px;
+}
+
+table {
+    margin-top: 20px;
+    width: 75%;
+    text-align: left;
+}
+
+tr:nth-of-type(even) {
+    background-color: #d2deef;
+}
+
+tr:nth-of-type(odd) {
+    background-color: #eaeff7;
+}
+
+tr:first-of-type {
+    background-color:#5b9bd5;
 }
