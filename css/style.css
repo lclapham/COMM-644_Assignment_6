@@ -4,7 +4,12 @@ body {
  
 }
 
-section > h1 {
+section {
+    margin: 25px 20px;
+}
+
+
+section > h1{
     margin: 25px 20px;
 }
 form {
@@ -31,13 +36,13 @@ button {
     color: white;
 }
 section > button {
-   margin-left: 233px;
+   margin-left: 223px;
   
 }
 
 table {
     margin-top: 20px;
-    width: 75%;
+    width: 50%;
     text-align: left;
 }
 
@@ -49,11 +54,33 @@ tr:nth-of-type(odd) {
     background-color: #eaeff7;
 }
 
-tr:first-of-type {
+#tableHeader {
     background-color:#5b9bd5;
     color: white;
+    height: 25px;
 }
 
 tr > td:last-of-type {
     text-align: center;
+}
+
+#rowCount {
+    margin: 25px 20px;
+    font-weight: bolder;
+}
+
+span {
+    color: red;
+}
+
+#sp1 {
+    visibility: hidden;
+}
+
+#sp2 {
+    visibility: hidden;
+}
+
+#sp3 {
+    visibility: hidden;
 }

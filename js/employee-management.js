@@ -24,7 +24,7 @@ function loadDefaultInventory() {
 function createRows(idNum, source) {
     // Create the row element
     let tr = document.createElement('tr');
-   
+
     //set tr id with iterated number/use as a reference to delete row
     tr.id = "row" + idNum;
 
@@ -51,7 +51,7 @@ function createTableData(tr, idNum, source) {
 
     // Get the specific table row
     tr = document.getElementById(tr);
-    
+
     // Add the html from the inventory array
     if (source == 1) {
         name.innerHTML = inventory[idNum][0];
@@ -71,9 +71,9 @@ function createTableData(tr, idNum, source) {
     tr.appendChild(extension);
     tr.appendChild(delBtn);
 
+    // Call the row counter
     CountRows();
 }
-
 
 // Get Elements by ID
 let $ = (id) => {
@@ -89,21 +89,75 @@ $('myTable').addEventListener("click", function (e) {
 
 });
 
+$('inputForm').addEventListener("input", function () {
+    // Listen for the user to enter something then hide errors
+    if ($('uName').value !== '') {
+        document.getElementById('sp1').style.visibility = 'hidden';
+    }
+    if ($('uTitle').value !== '') {
+        document.getElementById('sp2').style.visibility = 'hidden';
+    }
+    if ($('uExt').value !== '') {
+        document.getElementById('sp3').style.visibility = 'hidden';
+    }
+
+})
+
 $('addBtn').addEventListener("click", function (e) {
-    // Get number of rows
-    let table = document.getElementById("myTable");
-    let rows = table.getElementsByTagName("tr");
-    //Establish index number 
-    idNum = rows.length - 1;
-    userName = ($('uName').value);
-    title = ($('uTitle').value)
-    extension = ($('uExt').value)
-    userUpdate.push(userName, title, extension)
-    inventory.push(userUpdate);
-    createRows(idNum, 2);
+    // Validate Input
+    if ($('uName').value == '') {
+        document.getElementById('sp1').style.visibility = 'visible';
+    }
+    if ($('uTitle').value == '') {
+        document.getElementById('sp2').style.visibility = 'visible';
+    }
+    if ($('uExt').value == '') {
+        document.getElementById('sp3').style.visibility = 'visible';
+    }
+    if ($('uName').value !== '' && $('uTitle').value !== '' && $('uExt').value !== '') {
+        // Get number of rows
+        let table = document.getElementById("myTable");
+        let rows = table.getElementsByTagName("tr");
+
+        //Establish index number 
+        idNum = rows.length - 1;
+
+        //Set the values for the form fields and update the arrays
+        userName = ($('uName').value);
+        title = ($('uTitle').value)
+        extension = ($('uExt').value)
+        userUpdate.push(userName, title, extension)
+        inventory.push(userUpdate);
+        createRows(idNum, 2);
+
+        //Call for cleanup
+        cleanUpForm();
+
+    }
+
+
+
 
 });
 
+function cleanUpForm() {
+    //Hide the Error if there is data in the field
+    if ($('uName').value !== '') {
+        document.getElementById('sp1').style.visibility = 'hidden';
+    }
+    if ($('uTitle').value !== '') {
+        document.getElementById('sp2').style.visibility = 'hidden';
+    }
+    if ($('uExt').value !== '') {
+        document.getElementById('sp3').style.visibility = 'hidden';
+
+    }
+
+    // Clear the input value
+    $('uName').value = "";
+    $('uTitle').value = "";
+    $('uExt').value = "";
+}
 
 function CountRows() {
     var rowCount = 0;
@@ -119,7 +173,6 @@ function CountRows() {
     countingRows.innerHTML = "Showing " + rowCount + " Employees";
 
 }
-
 
 window.addEventListener('load', () => {
     loadDefaultInventory();
