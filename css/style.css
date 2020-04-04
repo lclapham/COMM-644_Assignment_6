@@ -26,8 +26,13 @@ input {
     margin: 10px 10px;
 }
 
+button {
+    background-color: #5b9bd5;
+    color: antiquewhite;
+}
 section > button {
    margin-left: 233px;
+  
 }
 
 table {
@@ -46,4 +51,9 @@ tr:nth-of-type(odd) {
 
 tr:first-of-type {
     background-color:#5b9bd5;
+    color: antiquewhite;
+}
+
+tr > td:last-of-type {
+    text-align: center;
 }
