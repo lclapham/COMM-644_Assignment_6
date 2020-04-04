@@ -2,11 +2,14 @@
 
 // Golbal Variables
 let inventory = [];
+let userUpdate = [];
 let empData1 = ['Henery Dorsett', 'Data Entry', '1234']
 let empData2 = ['Molly Millions', 'Security Guard', '911']
 let empData3 = ['Willis Corto', 'Colonel', '1235']
 let empData4 = ['Linda Lee', 'Recepectionist', '010101']
 let empData5 = ['Peter Riviera', 'Loan Officer', '411']
+
+let Source;
 
 let programRun = true;
 
@@ -15,32 +18,31 @@ let numberOfRows;
 // Default Table Enteries
 function loadDefaultInventory() {
     inventory.push(empData1, empData2, empData3, empData4, empData5);
-
 }
 
 // Creates programmtic approach to rows 
-function createRows(idNum) {
+function createRows(idNum, source) {
     // Create the row element
     let tr = document.createElement('tr');
-
+   
     //set tr id with iterated number/use as a reference to delete row
     tr.id = "row" + idNum;
 
     // Insert row in 'myTable' on document
     myTable.appendChild(tr);
-    console.log(tr.id);
-    createTableData(tr.id, inventory, idNum);
+    createTableData(tr.id, idNum, source);
 
 }
 
 function loadStaticData() {
     // iterate throug the inventory array calling the createrows() to populate document table
     for (let i = 0; i < inventory.length; i++) {
-        createRows([i]);
+        createRows([i], 1);
     }
 }
 // let newLocal = inventory[0][0];
-function createTableData(tr, inventory, idNum) {
+function createTableData(tr, idNum, source) {
+
     // Setup Table Data
     let name = document.createElement('td');
     let title = document.createElement('td');
@@ -49,18 +51,27 @@ function createTableData(tr, inventory, idNum) {
 
     // Get the specific table row
     tr = document.getElementById(tr);
-
+    
     // Add the html from the inventory array
-    name.innerHTML = inventory[idNum][0];
-    title.innerHTML = inventory[idNum][1];
-    extension.innerHTML = inventory[idNum][2];
-    delBtn.innerHTML = "<button id="+idNum+">Delete</button>";
+    if (source == 1) {
+        name.innerHTML = inventory[idNum][0];
+        title.innerHTML = inventory[idNum][1];
+        extension.innerHTML = inventory[idNum][2];
+    } else {
+        name.innerHTML = userUpdate[0];
+        title.innerHTML = userUpdate[1];
+        extension.innerHTML = userUpdate[2];
+    }
+
+    delBtn.innerHTML = "<button id=" + idNum + ">Delete</button>";
 
     // Append the 'myTable'-->Row with populated TDs
     tr.appendChild(name);
     tr.appendChild(title);
     tr.appendChild(extension);
     tr.appendChild(delBtn);
+
+    CountRows();
 }
 
 
@@ -68,50 +79,46 @@ function createTableData(tr, inventory, idNum) {
 let $ = (id) => {
     return window.document.getElementById(id);
 }
+
+// Table button events
 $('myTable').addEventListener("click", function (e) {
-    let row = "row"+e.target.id;
+    let row = "row" + e.target.id;
     let rowToDel = document.getElementById(row);
     rowToDel.remove();
+    CountRows();
 
 });
 
-// function getId(element) {
-//     console.log(element.parentNode.rows)
-//     // alert("row" + element.parentNode.parentNode.rowIndex + 
-//     // " - column" + element.parentNode.cellIndex);
-// }
+$('addBtn').addEventListener("click", function (e) {
+    // Get number of rows
+    let table = document.getElementById("myTable");
+    let rows = table.getElementsByTagName("tr");
+    //Establish index number 
+    idNum = rows.length - 1;
+    userName = ($('uName').value);
+    title = ($('uTitle').value)
+    extension = ($('uExt').value)
+    userUpdate.push(userName, title, extension)
+    inventory.push(userUpdate);
+    createRows(idNum, 2);
 
-// document.getElementById('myTable').getElementsByTagName('tr')[0].getElementsByTagName('th')[0].innerText;
-
-
-// document.getElementById('myTable').getElementsByTagName('tr')[0].getElementsByTagName('th')[0].innerText = empData1[0];
-
-// document.getElementById('myTable').getElementsByTagName('tr')[1].getElementsByTagName('td')[0].innerHTML;
-
-
-
-
-
-
+});
 
 
 function CountRows() {
-    var totalRowCount = 0;
     var rowCount = 0;
     var table = document.getElementById("myTable");
     var rows = table.getElementsByTagName("tr")
     for (var i = 0; i < rows.length; i++) {
-        totalRowCount++;
         if (rows[i].getElementsByTagName("td").length > 0) {
             rowCount++;
         }
     }
-    var message = "Total Row Count: " + totalRowCount;
-    message += "\nRow Count: " + rowCount;
-    alert(message);
+    countingRows = document.getElementById('rowCount')
+
+    countingRows.innerHTML = "Showing " + rowCount + " Employees";
+
 }
-
-
 
 
 window.addEventListener('load', () => {
@@ -120,33 +127,3 @@ window.addEventListener('load', () => {
 
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var tableRef = document.getElementById('myTable').getElementsByTagName('tr')[0];
-
-// Insert a row in the table at the last row
-var newRow = tableRef.insertRow;
-
-
-// // Insert a cell in the row at index 0
-// var newCell  = newRow.insertCell(0);
-
-// // Append a text node to the cell
-// var newText  = document.createTextNode('New row');
-// newCell.appendChild(newText);
