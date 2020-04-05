@@ -11,9 +11,6 @@ let empData5 = ['Peter Riviera', 'Loan Officer', '411']
 
 let Source;
 
-let programRun = true;
-
-let numberOfRows;
 
 // Default Table Enteries
 function loadDefaultInventory() {
