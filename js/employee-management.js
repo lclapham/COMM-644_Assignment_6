@@ -129,11 +129,7 @@ $('addBtn').addEventListener("click", function (e) {
 
         //Call for cleanup
         cleanUpForm();
-
     }
-
-
-
 
 });
 
