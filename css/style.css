@@ -60,6 +60,10 @@ tr:nth-of-type(odd) {
     height: 25px;
 }
 
+#tableHeader > th:nth-of-type(4){
+    width: 125px;
+}
+
 tr > td:last-of-type {
     text-align: center;
 }
