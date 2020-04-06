@@ -22,7 +22,7 @@ function createRows(idNum, source) {
     // Create the row element
     let tr = document.createElement('tr');
 
-    //set tr id with iterated number/use as a reference to delete row
+    //set tr id with iterated number/use as a reference 
     tr.id = "row" + idNum;
 
     // Insert row in 'myTable' on document
@@ -77,7 +77,7 @@ let $ = (id) => {
     return window.document.getElementById(id);
 }
 
-// Table button events
+// Table button events "DELETE ROW"
 $('myTable').addEventListener("click", function (e) {
     let row = "row" + e.target.id;
     let rowToDel = document.getElementById(row);
@@ -85,6 +85,7 @@ $('myTable').addEventListener("click", function (e) {
     CountRows();
 
 });
+
 
 $('inputForm').addEventListener("input", function () {
     // Listen for the user to enter something then hide errors
@@ -100,6 +101,7 @@ $('inputForm').addEventListener("input", function () {
 
 })
 
+// ADD USER INPUT
 $('addBtn').addEventListener("click", function (e) {
     // Validate Input
     if ($('uName').value == '') {

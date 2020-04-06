@@ -70,7 +70,8 @@ tr > td:last-of-type {
 }
 
 span {
-    color: red;
+    position: relative;
+    top: 3px;
 }
 
 #sp1 {
@@ -83,4 +84,9 @@ span {
 
 #sp3 {
     visibility: hidden;
+}
+
+img {
+   margin-top: 5px;
+    height: 15px;
 }
